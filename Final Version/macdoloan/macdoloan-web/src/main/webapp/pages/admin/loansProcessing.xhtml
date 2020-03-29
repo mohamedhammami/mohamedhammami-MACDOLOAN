@@ -1,0 +1,81 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:a="http://xmlns.jcp.org/jsf/passthrough" template="layout.xhtml"
+	xmlns:b="http://bootsfaces.net/ui">
+
+
+
+	<ui:define name="content">
+		<!-- start banner Area -->
+
+		<div class="container-fluid">
+
+			<div class="table-responsive table-responsive-data2">
+				<table class="table table-data2">
+					<thead>
+						<tr>
+							<th><label class="au-checkbox"> <input
+									type="checkbox" /> <span class="au-checkmark"></span>
+							</label></th>
+							<th>name</th>
+							<th>End Date</th>
+							<th>Loan Name</th>
+							<th>Refund Date</th>
+							<th>status</th>
+							<th>price</th>
+							<th></th>
+						</tr>
+					</thead>
+					<tbody>
+						<ui:repeat var="nw" value="#{adminBean.loansProcessing}">
+							<tr class="tr-shadow">
+								<td><label class="au-checkbox"> <input
+										type="checkbox" /> <span class="au-checkmark"></span>
+								</label></td>
+								<td>#{nw.name}</td>
+								<td><span class="block-email">#{nw.enddate.toGMTString()}</span>
+								</td>
+								<td class="desc">#{nw.product.name}</td>
+								<td>#{nw.refunddate.toGMTString()}</td>
+								<td><span class="status--process">#{nw.state.toString()}</span>
+								</td>
+								<td>#{nw.amount}</td>
+								<td>
+									<div class="table-data-feature">
+
+										<h:form>
+											<h:commandButton action="#{adminBean.doAccept(nw)}"
+												styleClass="btn credit-btn mt-30" value="accepter" />
+										</h:form>
+										<button class="item" data-toggle="tooltip"
+											data-placement="top" title="Edit">
+											<i class="zmdi zmdi-edit"></i>
+										</button>
+										<button class="item" data-toggle="tooltip"
+											data-placement="top" title="Delete">
+											<i class="zmdi zmdi-delete"></i>
+										</button>
+										<button class="item" data-toggle="tooltip"
+											data-placement="top" title="More">
+											<i class="zmdi zmdi-more"></i>
+										</button>
+									</div>
+								</td>
+							</tr>
+							<tr class="spacer"></tr>
+						</ui:repeat>
+					</tbody>
+				</table>
+			</div>
+
+		</div>
+
+	</ui:define>
+
+
+</ui:composition>

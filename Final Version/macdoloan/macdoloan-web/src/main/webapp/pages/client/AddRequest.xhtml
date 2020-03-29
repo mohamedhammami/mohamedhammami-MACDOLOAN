@@ -1,0 +1,113 @@
+
+
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+	template="/template/template.xhtml" xmlns:b="http://bootsfaces.net/ui">
+
+
+
+
+
+
+	<ui:define name="content">
+
+		<!-- Single Slide -->
+
+
+
+		<h:head>
+			<meta charset="utf-8" />
+			<script
+				src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.1/jquery.js"></script>
+			<script type="text/javascript"
+				src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.2/jquery-ui.min.js"></script>
+			<script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+			<script src="http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+			<link rel="stylesheet" type="text/css" media="screen"
+				href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.2/themes/base/jquery-ui.css" />
+
+		</h:head>
+
+		<script>
+  $(document).ready(function () {
+	  $("#date").datepicker({dateFormat: 'yy-mm-dd'}) ;
+	  $("#date").datepicker('show') ;
+	
+});
+				</script>
+		<body>
+			<div class="map-area">
+				<iframe
+					src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d22236.40558254599!2d-118.25292394686001!3d34.057682914027104!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80c2c75ddc27da13%3A0xe22fdf6f254608f4!2z4Kay4Ka4IOCmj-CmnuCnjeCmnOCnh-CmsuCnh-CmuCwg4KaV4KeN4Kav4Ka-4Kay4Ka_4Kar4KeL4Kaw4KeN4Kao4Ka_4Kav4Ka84Ka-LCDgpq7gpr7gprDgp43gppXgpr_gpqgg4Kav4KeB4KaV4KeN4Kak4Kaw4Ka-4Ka34KeN4Kaf4KeN4Kaw!5e0!3m2!1sbn!2sbd!4v1532328708137"></iframe>
+				<!-- Contact Area -->
+				<div class="contact---area">
+					<div class="container">
+						<div class="row">
+							<div class="col-12 col-lg-8">
+								<!-- Contact Area -->
+								<div class="contact-form-area contact-page">
+									<h4 class="mb-50">Add Your Loan Request</h4>
+
+									<h:form action="#" method="post" id="formadd">
+										<div class="row">
+											<div class="col-lg-6">
+												<div class="form-group">
+													<h:outputLabel class="form-control" value="Your Start Date"/>
+												</div>
+											</div>
+											<div class="col-lg-6">
+												<div class="form-group">
+													<h:inputText a:type="date" value="#{loanBean.startdate}"
+														class="form-control" showTime="true" showIcon="true"/>
+
+												</div>
+											</div>
+											<div class="col-lg-6">
+												<div class="form-group">
+													<h:outputLabel class="form-control" value="Your End Date" />
+												</div>
+											</div>
+											<div class="col-lg-6">
+												<div class="form-group">
+													<h:inputText a:type="date" value="#{loanBean.enddate}"
+														class="form-control" showTime="true" showIcon="true" />
+
+												</div>
+											</div>
+											<div class="col-12">
+												<div class="form-group">
+													<h:inputTextarea value="#{loanBean.name}" name="message"
+													styleClass="form-control" cols="30" rows="10"
+													a:placeholder="Reason"></h:inputTextarea>
+												</div>
+											</div>
+											<div class="col-12">
+												<div class="form-group">
+													<h:inputText value="#{loanBean.amount}"
+													styleClass="form-control" a:placeholder="Amount"></h:inputText>
+												</div>
+											</div>
+											<div class="col-12">
+												<h:commandButton value="Add"
+												action="#{loanBean.addLoanRequest()}"
+												styleClass="btn credit-btn mt-30" />
+											</div>
+										</div>
+								</h:form>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+
+		</body>
+	</ui:define>
+
+</ui:composition>
+

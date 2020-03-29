@@ -1,0 +1,100 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:a="http://xmlns.jcp.org/jsf/passthrough" template="layout.xhtml"
+	xmlns:b="http://bootsfaces.net/ui">
+
+
+
+	<ui:define name="content">
+		<!-- start banner Area -->
+
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-md-12">
+					<!-- DATA TABLE -->
+					<h3 class="title-5 m-b-35">Installement</h3>
+					<div class="table-data__tool">
+						<div class="table-data__tool-left">
+							<div class="rs-select2--light rs-select2--sm">
+								<h:form>
+									<h:commandButton styleClass="au-btn-filter" action="#{adminBean.checkPenalities()}"
+										value="Check Penalities" />
+								</h:form>
+							</div>
+
+
+						</div>
+						<div class="table-data__tool-right">
+							<button class="au-btn au-btn-icon au-btn--green au-btn--small">
+								<i class="zmdi zmdi-plus"></i>add item
+							</button>
+							<div class="rs-select2--dark rs-select2--sm rs-select2--dark2">
+								<select class="js-select2" name="type">
+									<option selected="selected">Export</option>
+									<option value="">Option 1</option>
+									<option value="">Option 2</option>
+								</select>
+								<div class="dropDownSelect2"></div>
+							</div>
+						</div>
+					</div>
+					<div class="table-responsive table-responsive-data2">
+						<table class="table table-data2">
+							<thead>
+								<tr>
+									<th><label class="au-checkbox"> <input
+											type="checkbox" /> <span class="au-checkmark"></span>
+									</label></th>
+									<th>#</th>
+									<th>Price</th>
+									<th>Refund Date</th>
+									<th>Verified</th>
+									<th>Loan Name</th>
+									<th># Penality</th>
+
+									<th></th>
+								</tr>
+							</thead>
+							<tbody>
+								<ui:repeat var="installement" value="#{adminBean.installment}">
+									<tr class="tr-shadow">
+										<td><label class="au-checkbox"> <input
+												type="checkbox" /> <span class="au-checkmark"></span>
+										</label></td>
+										<td>#{installement.id}</td>
+										<td><span class="block-email">#{installement.prix}</span>
+										</td>
+										<td class="desc">#{installement.refunddatenddate.toGMTString()}</td>
+										<td>#{installement.verif.toString()}</td>
+										<td><span class="status--process">#{installement.loan.name}</span>
+										</td>
+										<td>#{adminBean.getPenalityByInstallement(installement.id).size()}
+										</td>
+										<td><h:panelGroup
+												rendered="#{adminBean.getPenalityByInstallement(installement.id).size() ge 1}">
+												<h:form>
+													<h:commandLink
+														action="#{adminBean.goPenality(installement.id)}"
+														value="Penality" />
+												</h:form>
+											</h:panelGroup></td>
+									</tr>
+									<tr class="spacer"></tr>
+								</ui:repeat>
+							</tbody>
+						</table>
+					</div>
+					<!-- END DATA TABLE -->
+				</div>
+			</div>
+		</div>
+
+	</ui:define>
+
+
+</ui:composition>

@@ -1,0 +1,56 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:p="http://primefaces.org/ui">
+	
+	<br /> <br />
+	<h:form>  
+    <p:growl id="messages"/>
+ 
+    <p:menubar>
+        <p:submenu label="All about Mandates " icon="pi pi-file">
+            <p:submenu label="New" icon="pi pi-briefcase">
+                <p:menuitem value="Mandate" outcome="/pages/admin/AjouterMandat"  />
+              </p:submenu>
+            <p:menuitem value="Open" outcome="/pages/admin/gererEmploye" />
+            <p:separator />
+            <p:menuitem value="Quit" outcome="/pages/admin/welcome.xhtml"  />
+        </p:submenu>
+ 
+      
+  
+  		<p:submenu label="Display Levio position " icon="pi pi-pencil">
+            <p:menuitem value="Display Map for levio position " outcome="/pages/admin/Mapdisplay" icon="pi pi-angle-double-left" />
+        </p:submenu>
+ 
+        <p:submenu label="About Levio" icon="pi pi-question">
+            <p:menuitem value="Check officiel web Site " url="https://www.levio.ca/" />
+          
+        </p:submenu>
+ 
+          <p:submenu label="Gerer Organigramme" icon="pi pi-question">
+            <p:menuitem value="Check organigrame session"  />
+          
+        </p:submenu>
+       
+        <f:facet name="options">
+            <p:inputText style="margin:1px 10px 1px 1px;" placeholder="Search"/>
+            <p:commandButton type="button" value="Logout" icon="pi pi-home" />
+        </f:facet>
+    </p:menubar>
+</h:form>
+	
+	<br/>
+	<h:link outcome="/pages/admin/welcome" value="Page d'accueil"/>
+	<br/>
+	
+	
+	
+	
+	
+	<h1>
+		<ui:insert name="title"></ui:insert>
+	</h1>
+
+</ui:composition>

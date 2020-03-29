@@ -1,0 +1,86 @@
+
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+	template="/template/template.xhtml" xmlns:p="http://primefaces.org/ui"
+	xmlns:b="http://bootsfaces.net/ui">
+
+
+
+	<ui:define name="content">
+
+		<!-- Single Slide -->
+
+
+
+
+		<script
+			src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.1/jquery.js"></script>
+		<script type="text/javascript"
+			src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.2/jquery-ui.min.js"></script>
+		<link rel="stylesheet" type="text/css" media="screen"
+			href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.2/themes/base/jquery-ui.css" />
+		<script src="../../resources/js/jquery/script.js"></script>
+
+		<style>
+.ui-datepicker-calendar {
+	display: none;
+}
+</style>
+
+
+		<h:body>
+			<div class="contact---area">
+				<div class="container">
+					<div class="row">
+						<div class="col-12 col-lg-8">
+							<!-- Contact Area -->
+							<div class="contact-form-area contact-page">
+								<h4 class="mb-50">Add Request Loan</h4>
+
+								<h:form action="#" method="post" id="formadd">
+									<div class="row">
+										<div class="col-12">
+											<div class="form-group">
+												<h:inputText value="#{loanBean.amount}"
+													styleClass="form-control" a:placeholder="Amount"></h:inputText>
+											</div>
+										</div>
+										<div class="col-12">
+											<div class="form-group">
+												<h:inputTextarea value="#{loanBean.name}" name="message"
+													styleClass="form-control" cols="30" rows="10"
+													a:placeholder="Reason"></h:inputTextarea>
+											</div>
+										</div>
+										<div class="col-12">
+											<div class="form-group">
+												<h:inputText name="startDate" id="startDate"
+													class="date-picker">
+												</h:inputText>
+
+											</div>
+										</div>
+										<div class="col-12"></div>
+										<div class="col-12">
+											<h:commandButton value="Add"
+												action="#{loanBean.addLoanRequest()}"
+												styleClass="btn credit-btn mt-30" />
+
+											<br></br>
+										</div>
+
+									</div>
+								</h:form>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</h:body>
+	</ui:define>
+
+</ui:composition>
+
